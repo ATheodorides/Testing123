@@ -1895,6 +1895,29 @@ body {
 .cid-qFbbHJPZ2G .card-title {
   text-align: left;
 }
+.cid-qFxjMEfUgK {
+  padding-top: 105px;
+  padding-bottom: 30px;
+  background-color: #2e2e2e;
+}
+.cid-qFxjMEfUgK .line {
+  background-color: #ffffff;
+  color: #ffffff;
+  align: center;
+  height: 2px;
+  margin: 0 auto;
+}
+.cid-qFxjMEfUgK .section-text {
+  padding: 2rem 0;
+}
+.cid-qFxjMEfUgK .inner-container {
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .cid-qFxjMEfUgK .inner-container {
+    width: 100% !important;
+  }
+}
 .cid-qFtG8u1JzX .navbar {
   padding: .5rem 0;
   background: #232323;
@@ -2277,7 +2300,7 @@ body {
   color: #c1c1c1 !important;
 }
 .cid-qFflmfQFoZ {
-  padding-top: 90px;
+  padding-top: 0px;
   padding-bottom: 90px;
   background-color: #ffffff;
 }
@@ -2341,42 +2364,28 @@ body {
 .cid-qFflmfQFoZ .mbr-gallery-item > div > span {
   text-align: center;
 }
-.cid-qFfrlRvQ2P {
-  padding-top: 90px;
-  padding-bottom: 90px;
-  background-color: #f9f9f9;
+.cid-qFxkcrLLx7 {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: #2e2e2e;
 }
-.cid-qFfrlRvQ2P .mbr-section-subtitle {
-  color: #767676;
+.cid-qFxkcrLLx7 .line {
+  background-color: #ffffff;
+  color: #ffffff;
+  align: center;
+  height: 2px;
+  margin: 0 auto;
 }
-.cid-qFfrlRvQ2P .media-row {
-  display: flex;
-  justify-content: center;
+.cid-qFxkcrLLx7 .section-text {
+  padding: 2rem 0;
 }
-.cid-qFfrlRvQ2P .team-item {
-  transition: all .2s;
-  margin-bottom: 2rem;
+.cid-qFxkcrLLx7 .inner-container {
+  margin: 0 auto;
 }
-.cid-qFfrlRvQ2P .team-item .item-image img {
-  width: 100%;
-}
-.cid-qFfrlRvQ2P .team-item .item-name p {
-  margin-bottom: 0;
-}
-.cid-qFfrlRvQ2P .team-item .item-role p {
-  margin-bottom: 0;
-}
-.cid-qFfrlRvQ2P .team-item .item-social {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.cid-qFfrlRvQ2P .team-item .item-social .socicon {
-  color: #232323;
-  font-size: 17px;
-}
-.cid-qFfrlRvQ2P .team-item .item-caption {
-  background: #ffffff;
+@media (max-width: 768px) {
+  .cid-qFxkcrLLx7 .inner-container {
+    width: 100% !important;
+  }
 }
 .cid-qFfRhxD7Ni {
   padding-top: 90px;
