@@ -155,6 +155,75 @@
         </div>
     </div>
 </section>
+  
+  
+  
+<section>
+      <div class="container">
+
+      <div class="starter-template">
+        <h2> <strong id = "text"> Today in Hype </strong> </h2>
+        <p class="lead" id = "dateToday"> January 19 </p>
+      </div>
+
+    </div><!-- /.container -->
+    
+    
+    
+ <div class = "row">   
+   <div id = "images" class="container">
+<!-- 	   html for first day of images go here  -->
+
+   </div> 
+
+
+
+
+     
+     
+
+
+   
+    
+   </div><!-- /.container -->
+<!-- </div>  -->
+	
+	
+    <div class="container">
+
+      <div class="starter-template">
+        <h2> <strong id = "text"> Tomorrow in Hype </strong> </h2>
+        <p class="lead" id = "dateTomorrow"> January 19 </p>
+      </div>
+
+    </div><!-- /.container -->
+	  
+ <div class = "row">   
+   <div id = "imagesTwo" class="container">
+<!-- 	   html for second day of images go here  -->
+
+   </div> 
+	  </div>
+	  
+    <div class="container">
+
+      <div class="starter-template">
+        <h2> <strong id = "text"> After Tomorrow in Hype </strong> </h2>
+        <p class="lead" id = "dateThird"> January 19 </p>
+      </div>
+
+    </div><!-- /.container -->
+	  
+ <div class = "row">   
+   <div id = "imagesThird" class="container">
+<!-- 	   html for second day of images go here  -->
+
+   </div> 
+	  </div>
+  
+  
+  
+</section> 
 
 <section class="mbr-social-feed loading" id="feed-v" data-facebook="" data-twitter="SneakerNews" data-google="" data-posts="1" data-youtube="" data-rv-view="83" style="background-color: rgb(255, 255, 255); padding-top: 0px; padding-bottom: 0px;">
     
@@ -255,6 +324,156 @@
 
 
 </script>
+  
+<script>
+      function todaysDate()
+    {
+      var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+      var d = new Date();
+      var name = monthNames[d.getMonth()]
+      var n = d.getDate();
+      var today = name + " " + n; 
+      //console.log(today);
+      //$(dateToday).html(today);
+      return today; 
+    }
+  
+    function tomorrowsDate()
+    {
+         var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; 
+         var to = new Date();
+         var tomorrow = new Date(to.getTime() + (24 * 60 * 60 * 1000));
+         var nameTwo = monthNames[tomorrow.getMonth()];
+         var nTwo = tomorrow.getDate();
+         var tomorrowDate = nameTwo + " " + nTwo;
+         //console.log(tomorrowDate);
+         //$(dateTomorrow).html(tomorrowDate);
+         return tomorrowDate;
+    }
+
+    function thirdDate()
+	{
+	var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; 
+         var to = new Date();
+         var tomorrow = new Date(to.getTime() + (2*(24 * 60 * 60 * 1000)));
+         var nameTwo = monthNames[tomorrow.getMonth()];
+         var nTwo = tomorrow.getDate();
+         var tomorrowDate = nameTwo + " " + nTwo;
+         //console.log(tomorrowDate);
+         //$(dateTomorrow).html(tomorrowDate);
+         return tomorrowDate;
+		
+		
+		
+	}
+
+$("#dateToday").html(todaysDate);
+$("#dateTomorrow").html(tomorrowsDate);
+$("#dateThird").html(thirdDate);
+
+$.get("https://gist.githubusercontent.com/AndrewTheo18/5ac2b1080847508125698efc98c5f6f8/raw", function(data) 
+{ 
+	items = data.split('----'); 
+	//console.log(items);
+      //var firstLine = items[i].split('\n')[0];
+	//console.log(firstLine);
+	var index; 
+	for(var i = 1; i < items.length; i++)
+	{
+	   var firstLine = items[i].split('\n')[0];
+	   //console.log(firstLine);
+         var today = todaysDate();
+	   var tomorrow = tomorrowsDate();
+	   var thirdDay = thirdDate();
+         //console.log(today);
+	   if(firstLine == today)
+	   {
+		index = i; 
+		//console.log(index);
+		genToday(items[i]);
+		
+ 	   }
+		
+	  if(firstLine == tomorrow)
+	  {
+		 index = i;
+		 genTomorrow(items[i]);
+	  }
+		
+	 if(firstLine == thirdDay )
+	{
+		index = i;
+		genThirdDay(items[i]);
+	}
+		
+	
+	   
+		
+	
+	}
+
+});
+
+
+function genToday(data)
+{
+	//console.log(data);
+	var newdata = data.split('\n');
+	newdata.shift();
+	console.log(newdata);
+	
+	  for(var i = 0; i < newdata.length - 3; i = i + 3)
+        {
+			var imgsource = newdata[i + 2];
+			var textMain = newdata[i]; 
+			var textDesc = newdata[i + 1];	
+			var tester = " <div id = \"test\" class = \"col-lg-6 col-md-6 col-sm-6 col-xs-12\"> <img id = \"one\" class = \"img-responsive placeholder\" src = \"" + imgsource + "\"> <div class = \"caption\"  style = \"background-color:white;\"> <p id = \"text1\" class = \"text-center\"> <strong style = \"font-size:20px;\" id = \"text\">" + textMain + "</strong> <br> " + textDesc + "</br> </p> </div> </div>"; 
+			$("#images").append(tester);	
+	  }	
+	
+	
+
+	
+}
+
+
+function genTomorrow(data)
+{
+	var newdata = data.split('\n');
+	newdata.shift();
+	console.log(newdata);
+	
+        for(var i = 0; i < newdata.length - 3; i = i + 3)
+        {
+			var imgsource = newdata[i + 2];
+			var textMain = newdata[i]; 
+			var textDesc = newdata[i + 1];	
+			var tester = " <div id = \"test\" class = \"col-lg-6 col-md-6 col-sm-6 col-xs-12\"> <img id = \"one\" class = \"img-responsive placeholder\" src = \"" + imgsource + "\"> <div class = \"caption\"  style = \"background-color:white;\"> <p id = \"text1\" class = \"text-center\"> <strong style = \"font-size:20px;\" id = \"text\">" + textMain + "</strong> <br> " + textDesc + "</br> </p> </div> </div>"; 
+			$("#imagesTwo").append(tester);	
+	  }	
+	
+}
+
+
+function genThirdDay(data)
+{
+		var newdata = data.split('\n');
+	newdata.shift();
+	console.log(newdata);
+	
+        for(var i = 0; i < newdata.length ; i = i + 3)
+        {
+			var imgsource = newdata[i + 2];
+			var textMain = newdata[i]; 
+			var textDesc = newdata[i + 1];	
+			var tester = " <div id = \"test\" class = \"col-lg-6 col-md-6 col-sm-6 col-xs-12\"> <img id = \"one\" class = \"img-responsive placeholder\" src = \"" + imgsource + "\"> <div class = \"caption\"  style = \"background-color:white;\"> <p id = \"text1\" class = \"text-center\"> <strong style = \"font-size:20px;\" id = \"text\">" + textMain + "</strong> <br> " + textDesc + "</br> </p> </div> </div>"; 
+			$("#imagesThird").append(tester);	
+	  }	
+	
+	
+}
+  
+ </script> 
   
   
 </body>
